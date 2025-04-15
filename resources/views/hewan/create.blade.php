@@ -6,7 +6,7 @@
         <h3 class="card-title">{{ $page->title }}</h3>
     </div>
     <div class="card-body">
-        <form action="{{ route('hewan.store') }}" method="POST">
+        <form action="{{ route('store') }}" method="POST">
             @csrf
             <div class="form-group">
                 <label for="nama">Nama</label>
@@ -29,11 +29,11 @@
                 <input type="date" name="tanggal_lahir" class="form-control" required>
             </div>
             <div class="form-group">
-                <label for="kandang_id">Kandang</label>
-                <select name="kandang_id" class="form-control" required>
+                <label for="id_kandang">Kandang</label>
+                <select name="id_kandang" class="form-control" required>
                     <option value="">-- Pilih --</option>
                     @foreach ($kandang as $item)
-                        <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                        <option value="{{ $item->id_kandang }}">{{ $item->nama_kandang }}</option>
                     @endforeach
                 </select>
             </div>

@@ -6,13 +6,7 @@ use App\Http\Controllers\HewanController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', [WelcomeController::class, 'index']);
 
-// // Route untuk modul Level
-// Route::get('/level', [LevelController::class, 'index']);
-
-// // Route untuk modul Kategori
-// Route::get('/kategori', [KategoriController::class, 'index']);
 
 // Route untuk modul Hewan
 Route::group(['prefix'=>'hewan'], function(){

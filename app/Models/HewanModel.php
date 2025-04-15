@@ -17,14 +17,13 @@ class HewanModel extends Model
      * @var array
      */
     protected $fillable = ['nama_hewan', 'spesies', 'jenis_kelamin', 'tanggal_lahir', 'id_kandang'];
-
+    
     // public function kandang(): BelongsTo 
     // {
     //     return $this->belongsTo(KandangModel::class, 'id_kandang', 'id_kandang');
     // }
-    public function kandang()
-{
-    return $this->belongsTo(KandangModel::class, 'id_kandang');
-}
-
+        public function kandang()
+    {
+        return $this->belongsTo(KandangModel::class, 'id_kandang');
+    }
 }

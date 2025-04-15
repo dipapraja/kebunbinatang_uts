@@ -13,7 +13,7 @@
             <tr><th>Tanggal Lahir</th><td>{{ $hewan->tanggal_lahir }}</td></tr>
             <tr><th>Kandang</th><td>{{ $hewan->kandang->nama ?? '-' }}</td></tr>
         </table>
-        <a href="{{ route('hewan.index') }}" class="btn btn-secondary mt-3">Kembali</a>
+        <a href="{{ route('index') }}" class="btn btn-secondary mt-3">Kembali</a>
     </div>
 </div>
 @endsection
