@@ -17,6 +17,7 @@ class HewanModel extends Model
      * @var array
      */
     protected $fillable = ['nama_hewan', 'spesies', 'jenis_kelamin', 'tanggal_lahir', 'id_kandang'];
+    public $timestamps = false; 
     
     // public function kandang(): BelongsTo 
     // {

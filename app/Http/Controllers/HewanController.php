@@ -120,7 +120,7 @@ public function list(Request $request)
     public function edit(string $id)
     {
         $hewan = HewanModel::findOrFail($id);
-        $kategori = KategoriModel::all();
+        $kandang = KandangModel::all();
 
         $breadcrumb = (object) [
             'title' => 'Edit Hewan',
@@ -137,7 +137,7 @@ public function list(Request $request)
             'breadcrumb' => $breadcrumb,
             'page'       => $page,
             'hewan'      => $hewan,
-            'kategori'   => $kategori,
+            'kandang'   => $kandang,
             'activeMenu' => $activeMenu
         ]);
     }
@@ -145,19 +145,23 @@ public function list(Request $request)
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'nama_hewan'    => 'required|string|max:100',
-            'jenis_kelamin' => 'required|in:Jantan,Betina',
-            'kategori_id'   => 'required|integer|exists:kategori,kategori_id'
+            'nama_hewan'     => 'required|string|max:100',
+            'spesies'        => 'required|string|max:100',
+            'jenis_kelamin'  => 'required|in:Jantan,Betina',
+            'tanggal_lahir'  => 'required|date',
+            'id_kandang'     => 'required|exists:kandang,id_kandang'
         ]);
-
+    
         HewanModel::findOrFail($id)->update([
-            'nama_hewan'    => $request->nama_hewan,
-            'jenis_kelamin' => $request->jenis_kelamin,
-            'kategori_id'   => $request->kategori_id
+            'nama_hewan'     => $request->nama_hewan,
+            'spesies'        => $request->spesies,
+            'jenis_kelamin'  => $request->jenis_kelamin,
+            'tanggal_lahir'  => $request->tanggal_lahir,
+            'id_kandang'     => $request->id_kandang
         ]);
-
-        return redirect()->route('hewan.index')->with('success', 'Data hewan berhasil diubah');
-    }
+    
+        return redirect()->route('index')->with('success', 'Data hewan berhasil diubah');
+    }    
 
     public function destroy(string $id)
     {

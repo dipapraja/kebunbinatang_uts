@@ -6,12 +6,12 @@
         <h3 class="card-title">{{ $page->title }}</h3>
     </div>
     <div class="card-body">
-        <form action="{{ route('hewan.update', $hewan->id) }}" method="POST">
+        <form action="{{ route('update', $hewan->id_hewan) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="form-group">
                 <label for="nama">Nama</label>
-                <input type="text" name="nama" class="form-control" value="{{ $hewan->nama }}" required>
+                <input type="text" name="nama_hewan" class="form-control" value="{{ $hewan->nama_hewan }}" required>
             </div>
             <div class="form-group">
                 <label for="spesies">Spesies</label>
@@ -30,12 +30,12 @@
                 <input type="date" name="tanggal_lahir" class="form-control" value="{{ $hewan->tanggal_lahir }}" required>
             </div>
             <div class="form-group">
-                <label for="kandang_id">Kandang</label>
-                <select name="kandang_id" class="form-control" required>
+                <label for="id_kandang">Kandang</label>
+                <select name="id_kandang" class="form-control" required>
                     <option value="">-- Pilih --</option>
                     @foreach ($kandang as $item)
-                        <option value="{{ $item->id }}" {{ $hewan->kandang_id == $item->id ? 'selected' : '' }}>
-                            {{ $item->nama }}
+                        <option value="{{ $item->id_kandang }}" {{ $hewan->id_kandang == $item->id_kandang ? 'selected' : '' }}>
+                            {{ $item->nama_kandang }}
                         </option>
                     @endforeach
                 </select>
