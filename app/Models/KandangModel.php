@@ -10,6 +10,7 @@ class KandangModel extends Model
     use HasFactory;
     protected $table = 'kandang';
     protected $primaryKey = 'id_kandang';
+    public $timestamps = false;
     /**
      * The attributes that are mass assignable.
      *
