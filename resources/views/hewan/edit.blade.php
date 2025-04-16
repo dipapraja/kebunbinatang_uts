@@ -6,7 +6,7 @@
         <h3 class="card-title">{{ $page->title }}</h3>
     </div>
     <div class="card-body">
-        <form action="{{ route('update', $hewan->id_hewan) }}" method="POST">
+        <form action="{{ route('hewan.update', $hewan->id_hewan) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="form-group">

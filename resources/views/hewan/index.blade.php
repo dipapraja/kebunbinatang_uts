@@ -65,10 +65,8 @@
             serverSide: true,
             ajax: {
                 url: "{{ url('hewan/list') }}",
-                type: "POST",
+                type: "GET",
                 data: function (d) {
-                    // Jika kamu menambahkan filter kandang, bisa aktifkan baris ini:
-                    // d.id_kandang = $('#id_kandang').val();
                 }
             },
             columns: [
@@ -77,15 +75,10 @@
                 { data: 'spesies', name: 'spesies' },
                 { data: 'jenis_kelamin', name: 'jenis_kelamin' },
                 { data: 'tanggal_lahir', name: 'tanggal_lahir' },
-                { data: 'id_kandang', name: 'id_kandang' }, // Ini akan berisi nama kandang karena diubah di controller
+                { data: 'kandang', name: 'kandang' }, // Ini akan berisi nama kandang karena diubah di controller
                 { data: 'aksi', name: 'aksi', orderable: false, searchable: false  }
             ]
-        });
-
-        // Jika ada filter
-        // $('#id_kandang').on('change', function () {
-        //     dataHewan.ajax.reload();
-        // });
+        });        
     });
 </script>
 @endpush

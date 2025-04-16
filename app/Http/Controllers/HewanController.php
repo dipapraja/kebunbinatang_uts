@@ -88,7 +88,7 @@ public function list(Request $request)
     ]);
 
     HewanModel::create([
-        'nama_hewan'     => $request->nama,
+        'nama_hewan'     => $request->nama_hewan,
         'spesies'        => $request->spesies,
         'jenis_kelamin'  => $request->jenis_kelamin,
         'tanggal_lahir'  => $request->tanggal_lahir,
@@ -172,7 +172,7 @@ public function list(Request $request)
     {
         $hewan = HewanModel::find($id);
         if (!$hewan) {
-            return redirect()->route('index')->with('error', 'Data hewan tidak ditemukan');
+            return redirect()->route('hewan.index')->with('error', 'Data hewan tidak ditemukan');
         }
 
         try {

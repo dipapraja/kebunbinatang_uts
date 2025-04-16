@@ -6,11 +6,11 @@
         <h3 class="card-title">{{ $page->title }}</h3>
     </div>
     <div class="card-body">
-        <form action="{{ route('store') }}" method="POST">
+        <form action="{{ route('hewan.store') }}" method="POST">
             @csrf
             <div class="form-group">
                 <label for="nama">Nama</label>
-                <input type="text" name="nama" class="form-control" required>
+                <input type="text" name="nama_hewan" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="spesies">Spesies</label>
