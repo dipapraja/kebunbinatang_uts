@@ -165,7 +165,7 @@ public function list(Request $request)
             'id_kandang'     => $request->id_kandang
         ]);
     
-        return redirect()->route('index')->with('success', 'Data hewan berhasil diubah');
+        return redirect()->route('hewan.index')->with('success', 'Data hewan berhasil diubah');
     }    
 
     public function destroy(string $id)
@@ -177,7 +177,7 @@ public function list(Request $request)
 
         try {
             $hewan->delete();
-            return redirect()->route('index')->with('success', 'Data hewan berhasil dihapus');
+            return redirect()->route('hewan.index')->with('success', 'Data hewan berhasil dihapus');
         } catch (\Illuminate\Database\QueryException $e) {
             return redirect()->route('hewan.index')->with('error', 'Data hewan gagal dihapus karena masih terkait dengan data lain');
         }
