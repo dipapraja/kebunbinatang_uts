@@ -41,11 +41,16 @@ public function list(Request $request)
         })
         ->addIndexColumn()  // Menambahkan kolom No
         ->addColumn('aksi', function($row) {
-            return '<a href="'.url('hewan/'.$row->id_hewan).'" class="btn btn-sm btn-info">Detail</a>
-                    <a href="'.url('hewan/'.$row->id_hewan.'/edit').'" class="btn btn-sm btn-warning">Edit</a>
-                    <a href="'.url('hewan/'.$row->id_hewan).'" class="btn btn-sm btn-danger" onclick="return confirm(\'Yakin?\')">Hapus</a>';        
+            $btn = '<a href="'.url('hewan/'.$row->id_hewan).'" class="btn btn-sm btn-info">Detail</a> ';
+            $btn .= '<a href="'.url('hewan/'.$row->id_hewan.'/edit').'" class="btn btn-sm btn-warning">Edit</a> ';
+            $btn .= '<form action="'.url('hewan/'.$row->id_hewan).'" method="POST" style="display:inline-block;" onsubmit="return confirm(\'Yakin ingin menghapus data ini?\')">
+                        '.csrf_field().'
+                        '.method_field('DELETE').'
+                        <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                    </form>';
+            return $btn;
         })
-        ->rawColumns(['aksi'])
+        ->rawColumns(['aksi']) // ← penting! agar HTML-nya tidak di-escape
         ->make(true);
 }
 
@@ -167,12 +172,12 @@ public function list(Request $request)
     {
         $hewan = HewanModel::find($id);
         if (!$hewan) {
-            return redirect()->route('hewan.index')->with('error', 'Data hewan tidak ditemukan');
+            return redirect()->route('index')->with('error', 'Data hewan tidak ditemukan');
         }
 
         try {
             $hewan->delete();
-            return redirect()->route('hewan.index')->with('success', 'Data hewan berhasil dihapus');
+            return redirect()->route('index')->with('success', 'Data hewan berhasil dihapus');
         } catch (\Illuminate\Database\QueryException $e) {
             return redirect()->route('hewan.index')->with('error', 'Data hewan gagal dihapus karena masih terkait dengan data lain');
         }
