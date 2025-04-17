@@ -29,7 +29,7 @@
         <table class="table table-bordered table-striped table-hover table-sm" id="table_kandang">
             <thead>
                 <tr>
-                    <th width="5%" class="text-center">No</th>
+                    <th width="7%" class="text-center">No</th>
                     <th>Nama Kandang</th>
                     <th>Tipe Kandang</th>
                     <th>Kapasitas</th>
@@ -42,6 +42,15 @@
 
 <div id="myModal" class="modal fade animate shake" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" data-width="75%" aria-hidden="true"></div>
 @endsection
+
+@push('css')
+<style>
+    #table_kandang thead th {
+        white-space: nowrap;
+        vertical-align: middle;
+    }
+</style>
+@endpush
 
 @push('js')
 <script>

@@ -32,7 +32,7 @@
     <!-- Brand Logo -->
     <a href="{{ url('/') }}" class="brand-link">
       <img src="{{ asset('adminlte/dist/img/Zoo Dipa Praja.png') }}" alt="Logo Kebun Binatang" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Zoo - Dipa Praja</span>
+      <span class="brand-text font-weight-light">Zoo - Dipa Praja 🐾</span>
     </a>
 
     <!-- Sidebar -->

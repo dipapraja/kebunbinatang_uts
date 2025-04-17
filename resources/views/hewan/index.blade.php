@@ -28,7 +28,7 @@
         <table class="table table-bordered table-striped table-hover table-sm" id="table_hewan">
             <thead>
                 <tr>
-                    <th width="5%" class="text-center">No</th>
+                    <th width="7%" class="text-center">No</th>
                     <th>Nama</th>
                     <th>Spesies</th>
                     <th>Jenis Kelamin</th>

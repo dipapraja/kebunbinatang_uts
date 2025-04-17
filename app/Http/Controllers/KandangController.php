@@ -16,7 +16,7 @@ class KandangController extends Controller
         ];
 
         $page = (object)[
-            'title' => 'Data Kandang'
+            'title' => 'Data Kandang yang terdaftar dalam sistem'
         ];
 
         $activeMenu = 'kandang';

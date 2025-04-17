@@ -14,12 +14,12 @@ class HewanController extends Controller
     public function index()
     {
         $breadcrumb = (object) [
-            'title' => 'Daftar Hewan',
+            'title' => 'Data Hewan',
             'list'  => ['Home', 'Hewan']
         ];
 
         $page = (object) [
-            'title' => 'Daftar hewan yang terdaftar dalam sistem'
+            'title' => 'Data Hewan yang terdaftar dalam sistem'
         ];
 
         $activeMenu = 'hewan';

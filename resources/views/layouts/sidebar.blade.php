@@ -17,13 +17,13 @@
             <!-- Dashboard -->
             <li class="nav-item">
                 <a href="{{ url('/') }}" class="nav-link {{ ($activeMenu == 'dashboard') ? 'active' : '' }}">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                    <p>Dashboard</p>
+                    <i class="nav-icon fas fa-otter"></i>
+                    <p>Home</p>
                 </a>
             </li>
 
             <!-- Data Master -->
-            <li class="nav-header">Data Master</li>
+            <li class="nav-header">Layanan Zoo🐾</li>
             <li class="nav-item">
                 <a href="{{ url('/kandang') }}" class="nav-link {{ ($activeMenu == 'kandang') ? 'active' : '' }}">
                     <i class="nav-icon fas fa-home"></i>
