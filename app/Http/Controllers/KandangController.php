@@ -123,11 +123,21 @@ class KandangController extends Controller
         return redirect()->route('kandang.index')->with('success', 'Data kandang berhasil diupdate.');
     }
 
+    // KandangController.php
     public function destroy($id)
     {
-        $kandang = KandangModel::where('id_kandang', $id)->firstOrFail();
-        $kandang->delete();
+        $kandang = KandangModel::findOrFail($id);
 
-        return redirect()->route('kandang.index')->with('success', 'Data kandang berhasil dihapus.');
+        try {
+            // Hapus semua hewan yang terkait dengan kandang ini terlebih dahulu
+            $kandang->hewan()->delete();
+        
+            // Hapus kandang
+            $kandang->delete();
+
+            return redirect()->route('kandang.index')->with('success', 'Data kandang dan hewan terkait berhasil dihapus.');
+        } catch (\Exception $e) {
+            return redirect()->route('kandang.index')->with('error', 'Gagal menghapus data kandang: ' . $e->getMessage());
+        }
     }
 }

@@ -17,4 +17,10 @@ class KandangModel extends Model
      * @var array
      */
     protected $fillable = ['nama_kandang', 'tipe_kandang', 'kapasitas'];
+
+    // KandangModel.php
+    public function hewan()
+    {
+        return $this->hasMany(HewanModel::class, 'id_kandang');
+    }
 }
