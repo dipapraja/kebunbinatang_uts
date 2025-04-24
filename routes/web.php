@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 // Route untuk welcome
 Route::get('/', [WelcomeController::class, 'index']);
-
+,
 // Route untuk Hewan
 Route::prefix('hewan')->group(function () {
     Route::get('/', [HewanController::class, 'index'])->name('hewan.index');
